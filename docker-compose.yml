@@ -45,7 +45,7 @@ services:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: 12345
         POSTGRES_DB: ewm
-      command: ["postgres", "-p", "5434"]
+      command: [ "postgres", "-p", "5434" ]
       ports:
         - "5434:5434"
       healthcheck:
