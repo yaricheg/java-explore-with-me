@@ -42,8 +42,8 @@ services:
     ewm-db:
       image: postgres:16
       environment:
-        POSTGRES_USER: sa
-        POSTGRES_PASSWORD: sa
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: 12345
         POSTGRES_DB: ewm
       command: ["postgres", "-p", "5434"]
       ports:
