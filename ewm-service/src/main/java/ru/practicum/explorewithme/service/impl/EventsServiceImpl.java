@@ -14,7 +14,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.explorewithme.ViewStatsDto;
+import ru.practicum.stat.dto.ViewStatsDto;
 import ru.practicum.explorewithme.dto.event.*;
 import ru.practicum.explorewithme.dto.participation.ParticipationRequestDto;
 import ru.practicum.explorewithme.enums.EventState;
@@ -31,7 +31,7 @@ import ru.practicum.explorewithme.repository.EventRepository;
 import ru.practicum.explorewithme.repository.ParticipationRepository;
 import ru.practicum.explorewithme.repository.UserRepository;
 import ru.practicum.explorewithme.service.EventsService;
-import ru.practicum.stats.client.StatsClient;
+import ru.practicum.stat.client.StatsClient;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

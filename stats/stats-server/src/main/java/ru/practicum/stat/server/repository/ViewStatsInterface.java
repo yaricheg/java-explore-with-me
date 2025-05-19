@@ -1,4 +1,4 @@
-package ru.practicum.explorewithme.repository;
+package ru.practicum.stat.server.repository;
 
 public interface ViewStatsInterface {
     String getApp();

@@ -1,4 +1,4 @@
-package ru.practicum.explorewithme.model;
+package ru.practicum.stat.server.model;
 
 
 import jakarta.persistence.*;

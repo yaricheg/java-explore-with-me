@@ -1,4 +1,4 @@
-package ru.practicum.explorewithme;
+package ru.practicum.stat.client;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,8 +6,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-import ru.practicum.explorewithme.EndpointHitDto;
-import ru.practicum.stats.client.StatsClient;
+import ru.practicum.stat.dto.EndpointHitDto;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

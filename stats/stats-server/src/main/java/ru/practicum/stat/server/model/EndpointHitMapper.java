@@ -1,6 +1,6 @@
-package ru.practicum.explorewithme.model;
+package ru.practicum.stat.server.model;
 
-import ru.practicum.explorewithme.EndpointHitDto;
+import ru.practicum.stat.dto.EndpointHitDto;
 
 public class EndpointHitMapper {
     public static EndpointHit toEndpointHit(EndpointHitDto endpointHitDto) {

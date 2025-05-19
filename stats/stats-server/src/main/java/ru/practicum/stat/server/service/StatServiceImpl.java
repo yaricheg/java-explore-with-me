@@ -1,13 +1,13 @@
-package ru.practicum.explorewithme.service;
+package ru.practicum.stat.server.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.practicum.explorewithme.EndpointHitDto;
-import ru.practicum.explorewithme.ViewStatsDto;
-import ru.practicum.explorewithme.exception.BadRequestException;
-import ru.practicum.explorewithme.model.EndpointHitMapper;
-import ru.practicum.explorewithme.repository.EndpointRepository;
-import ru.practicum.explorewithme.repository.ViewStatsInterface;
+import ru.practicum.stat.server.exception.BadRequestException;
+import ru.practicum.stat.server.repository.EndpointRepository;
+import ru.practicum.stat.server.repository.ViewStatsInterface;
+import ru.practicum.stat.dto.EndpointHitDto;
+import ru.practicum.stat.dto.ViewStatsDto;
+import ru.practicum.stat.server.model.EndpointHitMapper;
 
 
 import java.time.LocalDateTime;

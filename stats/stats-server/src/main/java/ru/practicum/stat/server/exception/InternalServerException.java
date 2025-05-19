@@ -1,4 +1,4 @@
-package ru.practicum.explorewithme.exception;
+package ru.practicum.stat.server.exception;
 
 public class InternalServerException extends RuntimeException {
     public InternalServerException(String message) {

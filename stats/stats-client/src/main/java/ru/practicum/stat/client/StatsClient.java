@@ -1,4 +1,4 @@
-package ru.practicum.stats.client;
+package ru.practicum.stat.client;
 
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotBlank;

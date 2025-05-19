@@ -1,4 +1,4 @@
-package ru.practicum.explorewithme.config;
+package ru.practicum.stat.client.config;
 
 
 import org.springframework.beans.factory.annotation.Value;

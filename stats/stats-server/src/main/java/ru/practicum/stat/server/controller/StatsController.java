@@ -1,4 +1,4 @@
-package ru.practicum.explorewithme.controller;
+package ru.practicum.stat.server.controller;
 
 import jakarta.validation.Valid;
 import lombok.NonNull;
@@ -8,10 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.explorewithme.EndpointHitDto;
-import ru.practicum.explorewithme.ViewStatsDto;
-import ru.practicum.explorewithme.exception.BadRequestException;
-import ru.practicum.explorewithme.service.StatServiceImpl;
+import ru.practicum.stat.server.exception.BadRequestException;
+import ru.practicum.stat.dto.EndpointHitDto;
+import ru.practicum.stat.dto.ViewStatsDto;
+import ru.practicum.stat.server.service.StatServiceImpl;
 
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;

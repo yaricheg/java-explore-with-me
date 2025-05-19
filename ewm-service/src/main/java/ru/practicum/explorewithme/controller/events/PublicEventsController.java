@@ -8,7 +8,7 @@ import ru.practicum.explorewithme.dto.event.EventFilterDto;
 import ru.practicum.explorewithme.dto.event.EventFullDto;
 import ru.practicum.explorewithme.dto.event.EventShortDto;
 import ru.practicum.explorewithme.service.EventsService;
-import ru.practicum.stats.client.StatsClient;
+import ru.practicum.stat.client.StatsClient;
 
 import java.util.List;
 
