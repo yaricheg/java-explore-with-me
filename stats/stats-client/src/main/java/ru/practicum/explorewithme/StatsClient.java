@@ -1,11 +1,15 @@
-package ru.practicum.explorewithme;
+package ru.practicum.stats.client;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import jakarta.annotation.Nullable;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.http.ResponseEntity;
 
-@SpringBootApplication
-public class StatsClient {
-    public static void main(String[] args) {
-        SpringApplication.run(StatsClient.class, args);
-    }
+import java.util.List;
+
+public interface StatsClient {
+
+    ResponseEntity<Void> postHit(@NotBlank String uri, @NotBlank String ip);
+
+    ResponseEntity<Object> getViewStats(@NotNull String start, @NotNull String end, @Nullable List<String> uris, @Nullable Boolean unique);
 }
