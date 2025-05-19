@@ -11,7 +11,7 @@ management:
       enabled: true
 spring:
   datasource:
-    url: jdbc:postgresql://ewm-db:5434/ewm
+    url: jdbc:postgresql://ewm-db:5432/ewm
     username: postgres
     password: 12345
     driver-class-name: org.postgresql.Driver
