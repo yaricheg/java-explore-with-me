@@ -31,7 +31,7 @@ create TABLE IF NOT EXISTS events (
   initiator BIGINT NOT NULL,
   paid BOOLEAN NOT NULL,
   participant_limit INTEGER,
-  published_on TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  published_on TIMESTAMP WITHOUT TIME ZONE,
   request_moderation BOOLEAN,
   state VARCHAR(50),
   title VARCHAR(120) NOT NULL,
