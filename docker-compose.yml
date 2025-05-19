@@ -32,7 +32,7 @@ services:
       - POSTGRES_PASSWORD=12345
 
   ewm-service:
-    build: ewm
+    build: ewm-service
     container_name: ewm-service
     ports:
       - "8080:8080"
