@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 import ru.practicum.stat.client.config.ClientConfig;
 
-@SpringBootApplication(scanBasePackages = {"ru.practicum.stat.client", "ru.practicum.ewm"})
+@SpringBootApplication//(scanBasePackages = {"ru.practicum.stat.client", "ru.practicum.ewm"})
 @Import(ClientConfig.class)
 public class ExploreWithMeServer {
     public static void main(String[] args) {
