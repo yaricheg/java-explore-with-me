@@ -1,5 +1,3 @@
-FROM eclipse-temurin:21-jre-jammy
-VOLUME /tmp
-ARG JAR_FILE=target/stats-server-0.0.1-SNAPSHOT.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app.jar"]
+FROM amazoncorretto:21
+COPY target/*.jar stats.jar
+ENTRYPOINT ["java","-jar","/stats.jar"]

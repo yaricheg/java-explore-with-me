@@ -1,63 +1,56 @@
-version: "3.9"
 services:
+  stats-db:
+    image: postgres:16.1
+    container_name: stats-db
+    ports:
+      - "5432:5432" # Используем стандартный порт
+    environment:
+      - POSTGRES_DB=stat
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=strong_password_for_stats_db # Измените на надежный пароль
+
+  ewm-db:
+    image: postgres:16.1
+    container_name: ewm-db
+    ports:
+      - "5433:5432" # Используем другой порт, чтобы избежать конфликтов
+    environment:
+      - POSTGRES_DB=ewm
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=strong_password_for_ewm_db # Измените на надежный пароль
+
   stats-server:
     build: stats/stats-server
     container_name: stats-server
     ports:
       - "9090:9090"
+    depends_on:
+      - stats-db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/ewm-stats
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/stat # Обращение к localhost
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=12345
-  stats-db:
-    image: postgres:16.1
-    container_name: postgres-ewm-stats-db
-    ports:
-      - "6432:5432"
-    environment:
-      - POSTGRES_PASSWORD=12345
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=ewm-stats
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - SPRING_DATASOURCE_PASSWORD=strong_password_for_stats_db # Измените на надежный пароль
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9090/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
   ewm-service:
     build: ewm-service
-    # image: ewm-service
+    container_name: ewm-service
     ports:
       - "8080:8080"
-    environment:
-      - JAVA_OPTS=-Duser.timezone=UTC
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://ewm-db:5434/ewm
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=12345
     depends_on:
       - ewm-db
+      - stats-server
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5433/ewm # Обращение к localhost
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=strong_password_for_ewm_db # Измените на надежный пароль
+      - STATS_SERVER_URL=http://stats-server:9090
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
       interval: 10s
       timeout: 5s
       retries: 10
-  ewm-db:
-    image: postgres:16
-    container_name: postgres-ewm-db
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=12345
-      - POSTGRES_DB=ewm
-    command: ["postgres", "-p", "5434"]
-    ports:
-      - "5434:5434"
-    healthcheck:
-      test: pg_isready -p 5434 -q -d $$POSTGRES_DB -U $$POSTGRES_USER
-      timeout: 5s
-      interval: 5s
-      retries: 10
-    volumes:
-      - postgres-ewm-data:/var/lib/postgresql/data
-volumes:
-  postgres-data:
-  postgres-ewm-data:
-
-
-
-
